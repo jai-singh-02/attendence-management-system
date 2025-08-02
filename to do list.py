@@ -38,16 +38,14 @@ class ToDoList:
             st.subheader(f"Hi {st.session_state.name}")
             st.markdown(st.session_state.date)
             if st.button("Change name/date"):
-                if "name" not in st.session_state:
-                    st.session_state.name = ""
+                st.session_state.name = ""
 
-                if "date" not in st.session_state:
-                    st.session_state.date = None
+                st.session_state.date = None
 
-                if "task" not in st.session_state:
-                    st.session_state.task = {}
-                if "form_submit" not in st.session_state:
-                    st.session_state.form_submit = False
+                st.session_state.task = {}
+
+                st.session_state.form_submit = False
+
                 st.rerun()
             choice=st.selectbox("**Features**",["👀 View Task","➕ Add Task","❌ Delete Task","✔️ Mark as done"])
         if choice == "👀 View Task":
